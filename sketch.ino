@@ -88,7 +88,7 @@ void loop() {
     int sudutServo5 = map(yaw, -4.36, 4.36, 0, 180); // rentang MPU adalah dari -4.36 sampai 4.36 (kita ubah rentangnya menjadi rentang pada servo).
     if (!servo5Back) { // apakah variabel servo5Back bernilai false?
         float selisihYaw = abs(yaw - yawBefore); // Buat variabel selisih Yaw untuk mendeteksi pergerakan
-        if (selisihYaw > threshold) { // apakah selisihYaw (pergerakan) melebih threshold, semakin rendah threshold maka makin tidak sensitif dengan gerakan.
+        if (selisihYaw > threshold) { // apakah selisihYaw (pergerakan) melebih threshold, semakin rendah threshold maka makin sensitif dengan gerakan. 
             servo5.write(sudutServo5); // Menggerakkan servo5 ke sudutServo5
             counter = 0; // Mengubah counter menjadi 0 agar sensor tidak sensitif mendeteksi bahwa benda berhenti bergerak
         } else if (sudutServo5 != sudutServo5Before && counter > 9) { // apakah terjadi pergerakan, dan apakah counter sudah melebihi 9
